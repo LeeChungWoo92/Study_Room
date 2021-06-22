@@ -1,7 +1,8 @@
-package com.lcw.study.room
+package com.lcw.study.room.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lcw.study.room.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
