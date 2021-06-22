@@ -1,5 +1,5 @@
 # study_room
-Room,Databinding,RecyclerView 
+Room  Databinding  RecyclerView     
 간단한 메모입력 후 저장버튼클릭시 Room에 저장하고 RecyclerView로 메모 목록 보여주기 
 좋아요 누른 메모만 보여주기 기능   
 
