@@ -1,6 +1,7 @@
 package com.lcw.study.room.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.lcw.study.room.utils.DateTime
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private val btnSave: Button by lazy { findViewById(R.id.btn_save) }
@@ -26,13 +28,17 @@ class MainActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                db.memoDao().insert(
-                    Memo(
-                        content = inputMemo.text.toString(),
-                        createDate = DateTime.dateNow(),
-                        favorite = false
+                withContext(CoroutineScope(Dispatchers.IO).coroutineContext){
+                    db.memoDao().insert(
+                        Memo(
+                            content = inputMemo.text.toString(),
+                            createDate = DateTime.dateNow(),
+                            favorite = false
+                        )
                     )
-                )
+                }
+                Log.d("roomselect","getAll : ${db.memoDao().getAll()}")
+
             }
 
             Toast.makeText(this, "저장되었습니다.", Toast.LENGTH_LONG).show()
