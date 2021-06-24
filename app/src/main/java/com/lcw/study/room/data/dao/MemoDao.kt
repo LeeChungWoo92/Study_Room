@@ -1,11 +1,9 @@
 package com.lcw.study.room.data.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.lcw.study.room.data.model.Memo
 
+@Dao
 interface MemoDao {
     @Insert
     fun insert(memo:Memo)
