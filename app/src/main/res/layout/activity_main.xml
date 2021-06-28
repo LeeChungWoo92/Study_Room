@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lcw.study.room.ui.main.MemoViewModel" />
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,8 +19,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            tools:context=".ui.MainActivity">
+            tools:context=".ui.main.MainActivity">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_layout"
@@ -23,46 +32,59 @@
                 android:layout_marginRight="20dp"
                 android:hint="메모할 내용을 입력해주세요."
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_save"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.05">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_id"
-                    android:textSize="14dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_save"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:text="저장"
-                style="?attr/materialButtonOutlinedStyle"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_layout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/edit_layout"
-                app:layout_constraintBottom_toBottomOf="@+id/edit_layout"/>
+                app:layout_constraintTop_toTopOf="@+id/edit_layout" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/check_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/btn_save"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:text="관심메모만 보기"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_save"
                 tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_memo_list"
-            android:layout_marginTop="20dp"
+            app:memo="@{vm.memoList}"
+            app:favorite="@{vm.favoriteListCheck}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_memo"/>
+            tools:listitem="@layout/item_memo"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="메모가 없습니다."
+            android:gravity="center"
+            android:textSize="18dp"
+            android:visibility="visible"/>
 
     </LinearLayout>
 
