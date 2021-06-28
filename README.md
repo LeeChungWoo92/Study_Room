@@ -14,12 +14,16 @@ Column
     
        
        
-    <img src="https://user-images.githubusercontent.com/63548632/123563780-7f6ef380-d7f1-11eb-9526-ce6b7cbe1370.gif" width="300" height="600">
+    <img src="https://user-images.githubusercontent.com/63548632/123563780-7f6ef380-d7f1-11eb-9526-ce6b7cbe1370.gif" width="300" height="600">  
+      
+        
+        
       
    
    
       
-
+  
+  
 # 스터디후기
 관심목록가져올때 select문을 날리지말고 
 처음 전체목록 가져오니까 filter로......
