@@ -11,4 +11,4 @@ Column
  - favorite(관심메모 여부)
  
     
-    <img src="https://user-images.githubusercontent.com/63548632/123563780-7f6ef380-d7f1-11eb-9526-ce6b7cbe1370.gif" width="500">
+    <img src="https://user-images.githubusercontent.com/63548632/123563780-7f6ef380-d7f1-11eb-9526-ce6b7cbe1370.gif" width="400" height="700">
