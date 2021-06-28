@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lcw.study.room.data.dao.MemoDao
 import com.lcw.study.room.data.model.Memo
+import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = [Memo::class], version = 1)
 abstract class MemoDatabase : RoomDatabase() {
@@ -17,7 +18,7 @@ abstract class MemoDatabase : RoomDatabase() {
 
 
         @Synchronized
-        fun getInstance(context: Context): MemoDatabase {
+        fun getInstance(context: Context, scope: CoroutineScope): MemoDatabase {
             if (instance == null) {
                 synchronized(MemoDatabase::class.java) {
                     instance = Room.databaseBuilder(
